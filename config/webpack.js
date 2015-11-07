@@ -1,10 +1,14 @@
 var path = require('path');
+var webpack = require('webpack');
 
 module.exports = {  
-  entry: { 
-    javascript: path.resolve(__dirname, '../src/client/js/app.jsx'),
-    html: path.resolve(__dirname, '../src/client/index.html'),
-  },
+  entry: [ 
+    'webpack-dev-server/client?http://0.0.0.0:3001', // WebpackDevServer host and port
+    'webpack/hot/only-dev-server', // "only" prevents reload on syntax errors
+
+    path.resolve(__dirname, '../src/client/js/app.jsx'),
+    path.resolve(__dirname, '../src/client/index.html'),
+  ],
   output: {
     path: path.resolve(__dirname, '../dist'),
     filename: 'bundle.js'
@@ -17,11 +21,8 @@ module.exports = {
         include: [
           path.resolve(__dirname, "../src")
         ],
-        loader: 'babel-loader',
+        loaders: ['react-hot-loader', 'babel-loader?presets[]=es2015,presets[]=react'],
         exclude: /node_modules/,
-        query: {
-          presets: ['es2015', 'react']
-        }
       },
       {
         test: /\.html$/,
@@ -31,5 +32,10 @@ module.exports = {
         }
       }
     ]
-  }
+  },
+
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin() 
+  ]
 };
