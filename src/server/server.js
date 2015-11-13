@@ -6,7 +6,7 @@ var isDevelopment = (process.env.NODE_ENV !== 'production');
 var app = express();
 
 var distPath = path.resolve(__dirname, '../../dist');
-app.use(express.static(distPath));
+app.use(express.static(distPath + "/"));
 
 var server = app.listen(process.env.PORT || 3000, function () {
   var host = server.address().address;
