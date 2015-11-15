@@ -1,22 +1,39 @@
 var express = require('express');
 var path = require('path');
+var bodyParser = require('body-parser');
+
+// Consts
+var DEFAULT_PORT = 3000;
+var WEBPACK_DEV_SERVER_PORT = 3001;
 
 var isDevelopment = (process.env.NODE_ENV !== 'production');
 
+// Initialize our express app to support json POSTs
 var app = express();
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
+// Serve static files from Webpack's output folder
 var distPath = path.resolve(__dirname, '../../dist');
 app.use(express.static(distPath + "/"));
 
-var server = app.listen(process.env.PORT || 3000, function () {
+// Load all routes from the "routes" folder
+var routes = require('require-all')(__dirname + '/routes');
+Object.keys(routes).forEach(function(routeName) {
+    console.log('Registering route ' + routeName);
+    app.use('/' + routeName, routes[routeName]);
+});
+
+// Start the server
+var server = app.listen(process.env.PORT || DEFAULT_PORT, function () {
   var host = server.address().address;
   var port = server.address().port;
 
   console.log('Server is listening at http://%s:%s', host, port);
 });
 
+// If we're not in a production environment, start Webpack's dev server
 if (isDevelopment) {
-    // Webpack dev
     var webpack = require('webpack');
     var WebpackDevServer = require('webpack-dev-server');
     var config = require('../../config/webpack.js');
@@ -25,9 +42,9 @@ if (isDevelopment) {
         hot: true,
         historyApiFallback: true,
         proxy: {
-            '*': 'http://localhost:3000'
+            '*': 'http://localhost:' + server.address().port
         }
-    }).listen(3001, 'localhost', function (err, result) {
+    }).listen(WEBPACK_DEV_SERVER_PORT, 'localhost', function (err, result) {
         if (err) {
             console.log(err);
         }

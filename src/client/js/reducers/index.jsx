@@ -1,9 +1,16 @@
 import { combineReducers } from 'redux'
 
-function login(state = "", action)  {
+const initialLoginState = {
+    userName: "",
+    isInProgress: false
+};
+
+function login(state = initialLoginState, action)  {
     switch (action.type) {
-        case "login":
-            return action.user;
+        case "loggingIn":
+            return {userName: action.user,isInProgress: true };
+        case "loggedIn":
+            return {userName: action.user,isInProgress: false };
         default:
             return state
     }
