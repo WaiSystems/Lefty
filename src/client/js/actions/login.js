@@ -1,9 +1,10 @@
 import * as UserApi from '../utils/UserApi'
 
-export function loggedIn(userName) {
+export function loggedIn(userName, sessionId) {
     return {
         type: "loggedIn",
-        user: userName
+        user: userName,
+        sessionId: sessionId
     };
 }
 
@@ -20,7 +21,7 @@ export function loginUser(userName) {
 
         UserApi.loginUser(userName)
             .then(json =>
-                dispatch(loggedIn(userName))
+                dispatch(loggedIn(userName, json.sessionId))
             )
     }
 }

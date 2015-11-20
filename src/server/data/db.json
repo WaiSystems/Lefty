@@ -1,0 +1,35 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "koby"
+    },
+    {
+      "id": 2,
+      "name": "dan"
+    }
+  ],
+
+  "conversations" : [
+    {
+      "users": [1, 2],
+      "messages": [
+        {
+          "from": 1,
+          "timestamp": 0,
+          "text": "Wai Wai"
+        },
+        {
+          "from": 1,
+          "timestamp": 1,
+          "text": "YyY"
+        },
+        {
+          "from": 2,
+          "timestamp": 2,
+          "text": "Hello"
+        }
+      ]
+    }
+  ]
+}

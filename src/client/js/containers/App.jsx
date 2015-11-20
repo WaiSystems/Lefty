@@ -1,10 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux'
 
-import Chat from '../components/Chat.jsx'
+import Chat from './Chat.jsx'
 import Login from '../components/Login.jsx'
 import Loading from '../components/Loading.jsx'
 import { loginUser } from '../actions/login.js'
+
+import * as UserApi from '../utils/UserApi'
 
 class App extends React.Component {
     render() {
@@ -24,7 +26,7 @@ class App extends React.Component {
         }
 
         return (
-            <Chat userName = {login.userName} />
+            <Chat />
         )
     }
 }
