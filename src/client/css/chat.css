@@ -1,0 +1,24 @@
+.chat {
+    position: absolute;
+    top: 0;
+    bottom:0;
+    left:0;
+    right:0;
+    display: inline-block;
+}
+
+.message-section {
+    position: absolute;
+    left: 305px;
+    right: 2px;
+    top: 2px;
+    bottom: 2px;
+}
+
+.thread-section {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    bottom: 2px;
+    width: 300px;
+}

@@ -1,5 +1,6 @@
 import React from 'react';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
+import { Layout, Header, Navigation, HeaderRow, Drawer, Content, Icon} from 'react-mdl';
 
 import Chat from './Chat.jsx'
 import Login from '../components/Login.jsx'
@@ -26,7 +27,23 @@ class App extends React.Component {
         }
 
         return (
-            <Chat />
+            <Layout fixedHeader={true}>
+                <Header>
+                    <HeaderRow title="Lefty">
+                        <Navigation>
+                            <a href="#">Logout</a>
+                        </Navigation>
+                    </HeaderRow>
+                </Header>
+                <Drawer title={login.userName}>
+                    <Navigation>
+                        <a href="#">Help</a>
+                    </Navigation>
+                </Drawer>
+                <Content style={{position:"relative"}}>
+                    <Chat />
+                </Content>
+            </Layout>
         )
     }
 }

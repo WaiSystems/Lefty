@@ -2,6 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux'
 
 import Loading from '../components/Loading.jsx'
+import MessageSection from '../containers/MessageSection.jsx'
+import ThreadSection from '../containers/ThreadSection.jsx'
+import "../../css/chat.css";
 import { fetchUserData } from '../actions/userData'
 
 import * as UserApi from '../utils/UserApi'
@@ -19,7 +22,10 @@ class Chat extends React.Component {
     }
 
     return (
-        <h1>Chat { login.userName }!</h1>
+        <div className="chat">
+            <ThreadSection/>
+            <MessageSection/>
+        </div>
     )
   }
 }
