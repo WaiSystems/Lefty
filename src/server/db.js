@@ -50,7 +50,6 @@ exports.getUsersForConversations = function(conversations, excludeUserId) {
 
     // Get the users with our user ids
     var users = db('users').filter(function(user) {
-        console.log("One User " + (user.id in userIds));
         return _.contains(userIds, user.id);
     });
 
