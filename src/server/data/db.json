@@ -2,11 +2,18 @@
   "users": [
     {
       "id": 1,
-      "name": "koby"
+      "name": "koby",
+      "displayName": "Koby"
     },
     {
       "id": 2,
-      "name": "dan"
+      "name": "dan",
+      "displayName": "Dan"
+    },
+    {
+      "id": 3,
+      "name": "test",
+      "displayName": "Test User"
     }
   ],
 
@@ -16,18 +23,33 @@
       "messages": [
         {
           "from": 1,
-          "timestamp": 0,
+          "timestamp": 1448129602292,
           "text": "Wai Wai"
         },
         {
           "from": 1,
-          "timestamp": 1,
+          "timestamp": 1448129626284,
           "text": "YyY"
         },
         {
           "from": 2,
-          "timestamp": 2,
+          "timestamp": 1448129642037,
           "text": "Hello"
+        }
+      ]
+    },
+    {
+      "users": [1,3],
+      "messages": [
+        {
+          "from": 1,
+          "timestamp": 1448129654821,
+          "text": "Hello"
+        },
+        {
+          "from": 3,
+          "timestamp": 1448129667444,
+          "text": "Hello back"
         }
       ]
     }
