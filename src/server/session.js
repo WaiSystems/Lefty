@@ -38,6 +38,8 @@ exports.createSession = function(user) {
 };
 
 exports.destroySession = function(sessionId) {
+    console.log('Destroying session ' + sessionId);
+
     var sessionObject = sessions[sessionId];
     if (sessionObject.socket) {
         sessionObject.socket.close();

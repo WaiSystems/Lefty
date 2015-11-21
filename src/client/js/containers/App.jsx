@@ -5,16 +5,32 @@ import { Layout, Header, Navigation, HeaderRow, Drawer, Content, Icon} from 'rea
 import Chat from './Chat.jsx'
 import Login from '../components/Login.jsx'
 import Loading from '../components/Loading.jsx'
-import { loginUser } from '../actions/login.js'
+import { loginUser, logoutUser } from '../actions/login.js'
 
 import * as UserApi from '../utils/UserApi'
 
 class App extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {};
+
+        this.onLogout = this.onLogout.bind(this);
+    }
+
+    onLogout(event) {
+        event.preventDefault();
+        this.props.dispatch(logoutUser(this.props.login.sessionId));
+    }
+
     render() {
         const { dispatch, login, userData } = this.props;
 
-        if (login.isInProgress) {
+        if (login.isLoginInProgress) {
             return <Loading message = "Logging in" />
+        }
+
+        if (login.isLogoutInProgress) {
+            return <Loading message = "Logging out" />
         }
 
         if (login.userName == "") {
@@ -31,7 +47,9 @@ class App extends React.Component {
                 <Header>
                     <HeaderRow title="Lefty">
                         <Navigation>
-                            <a href="#">Logout</a>
+                            <a href="#" onClick={ (e) => this.onLogout(e) }>
+                                Logout
+                            </a>
                         </Navigation>
                     </HeaderRow>
                 </Header>

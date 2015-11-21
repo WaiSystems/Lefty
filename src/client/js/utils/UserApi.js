@@ -17,6 +17,12 @@ export function loginUser(userName) {
     }).then(res => res.json());
 }
 
+export function logoutUser(sessionId) {
+    return fetchFromServer('/user/logout', {
+        sessionId: sessionId
+    }).then(res => res.json());
+}
+
 export function fetchUserData(sessionId) {
     return fetchFromServer('/user/getUserData', {
         sessionId: sessionId

@@ -22,6 +22,14 @@ router.post('/login', function (req, res) {
     });
 });
 
+router.post('/logout', function (req, res) {
+    session.destroySession(req.body.sessionId);
+
+    res.send({
+        status: "OK"
+    });
+});
+
 router.post('/getUserData', function (req, res) {
     if (req.session) {
         var userId = req.session.user.id;

@@ -2,7 +2,8 @@ import { combineReducers } from 'redux'
 
 const initialLoginState = {
     userName: "",
-    isInProgress: false,
+    isLoginInProgress: false,
+    isLogoutInProgress: false,
     sessionId: ""
 };
 
@@ -18,14 +19,22 @@ function login(state = initialLoginState, action)  {
         case "loggingIn":
             return Object.assign({}, state, {
                 userName: action.user,
-                isInProgress: true
+                isLoginInProgress: true
             });
 
         case "loggedIn":
             return Object.assign({}, state, {
                 sessionId: action.sessionId,
-                isInProgress: false
+                isLoginInProgress: false
             });
+
+        case "loggingOut":
+            return Object.assign({}, state, {
+                isLogoutInProgress: true
+            });
+
+        case "loggedOut":
+            return initialLoginState;
 
         default:
             return state
@@ -46,6 +55,9 @@ function userData(state = initialUserDataState, action)  {
                 users: action.userData.users,
                 conversations: action.userData.conversations
             });
+
+        case "loggedOut":
+            return initialUserDataState;
 
         default:
             return state
