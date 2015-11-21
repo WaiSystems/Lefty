@@ -11,7 +11,7 @@ import * as UserApi from '../utils/UserApi'
 
 class App extends React.Component {
     render() {
-        const { dispatch, login } = this.props;
+        const { dispatch, login, userData } = this.props;
 
         if (login.isInProgress) {
             return <Loading message = "Logging in" />
@@ -35,7 +35,7 @@ class App extends React.Component {
                         </Navigation>
                     </HeaderRow>
                 </Header>
-                <Drawer title={login.userName}>
+                <Drawer title={userData.self.displayName}>
                     <Navigation>
                         <a href="#">Help</a>
                     </Navigation>

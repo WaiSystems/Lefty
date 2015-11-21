@@ -27,6 +27,7 @@ router.post('/getUserData', function (req, res) {
         var userId = req.session.user.id;
 
         var userData = {};
+        userData.self = req.session.user;
         userData.conversations = db.getConversationsForUserId(userId);
         userData.users = db.getUsersForConversations(userData.conversations, userId);
 

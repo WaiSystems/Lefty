@@ -8,6 +8,7 @@ const initialLoginState = {
 
 const initialUserDataState = {
     isFetching: false,
+    self: {},
     users: {},
     conversations: []
 };
@@ -41,6 +42,7 @@ function userData(state = initialUserDataState, action)  {
         case "receiveUserData":
             return Object.assign({}, state, {
                 isFetching: false,
+                self: action.userData.self,
                 users: action.userData.users,
                 conversations: action.userData.conversations
             });

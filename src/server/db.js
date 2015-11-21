@@ -19,7 +19,8 @@ exports.getUserByName = function (userName) {
     var nextUserId = usersList.last().id + 1;
     user = {
         id: nextUserId,
-        name: userName
+        name: userName,
+        displayName: userName
     };
 
     usersList.push(user);
