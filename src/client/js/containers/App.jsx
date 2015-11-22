@@ -6,6 +6,7 @@ import Chat from './Chat.jsx'
 import Login from '../components/Login.jsx'
 import Loading from '../components/Loading.jsx'
 import { loginUser, logoutUser } from '../actions/login.js'
+import '../../css/app.css'
 
 import * as UserApi from '../utils/UserApi'
 
@@ -55,7 +56,12 @@ class App extends React.Component {
                 </Header>
                 <Drawer title={userData.self.displayName}>
                     <Navigation>
-                        <a href="#">Help</a>
+                        <a href="#">
+                            <Icon name="help" className="navigation-link-item" />
+                            <span className="navigation-link-item">
+                                &nbsp;Help
+                            </span>
+                        </a>
                     </Navigation>
                 </Drawer>
                 <Content style={{position:"relative"}}>
