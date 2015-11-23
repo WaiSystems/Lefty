@@ -29,7 +29,7 @@ exports.getUserByName = function (userName) {
 
 exports.getConversationsForUserId = function(userId) {
     return db('conversations').filter(function(conv) {
-        return userId in conv.users;
+        return _.contains(conv.users, userId);
     });
 };
 
