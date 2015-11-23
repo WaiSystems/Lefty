@@ -26,19 +26,19 @@
       "users": [1, 2],
       "messages": [
         {
-          "id": 1,
+          "id": "1_1448129602292",
           "from": 1,
           "timestamp": 1448129602292,
           "text": "Wai Wai"
         },
         {
-          "id": 2,
+          "id": "1_1448129626284",
           "from": 1,
           "timestamp": 1448129626284,
           "text": "YyY"
         },
         {
-          "id": 3,
+          "id": "2_1448129642037",
           "from": 2,
           "timestamp": 1448129642037,
           "text": "Hello"
@@ -50,13 +50,13 @@
       "users": [1,3],
       "messages": [
         {
-          "id": 1,
+          "id": "1_1448129654821",
           "from": 1,
           "timestamp": 1448129654821,
           "text": "Hello"
         },
         {
-          "id": 2,
+          "id": "3_1448129667444",
           "from": 3,
           "timestamp": 1448129667444,
           "text": "Hello back"

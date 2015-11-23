@@ -18,13 +18,14 @@ class MessageSection extends React.Component {
         console.log(messageText);
 
         const userData = this.props.userData;
-        const conversation = _.findWhere(userData.conversations, {id: userData.currentConversationId});
-        const message = {
-            id: _.last(conversation.messages).id + 1,
+        let message = {
+            id: "",
             from: userData.self.id,
             timestamp: Date.now(),
             text: messageText
         };
+
+        message.id = message.from.toString() + "_" + message.timestamp.toString();
 
         this.props.dispatch(createMessage(message));
     }
