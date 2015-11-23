@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 import Loading from '../components/Loading.jsx'
 import MessageSection from '../containers/MessageSection.jsx'
-import ThreadSection from '../containers/ThreadSection.jsx'
+import ConversationSection from '../containers/ConversationSection.jsx'
 import "../../css/chat.css";
 import { fetchUserData } from '../actions/userData'
 
@@ -23,7 +23,7 @@ class Chat extends React.Component {
 
     return (
         <div className="chat">
-            <ThreadSection/>
+            <ConversationSection/>
             <MessageSection/>
         </div>
     )

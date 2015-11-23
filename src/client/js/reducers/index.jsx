@@ -73,6 +73,11 @@ function userData(state = initialUserDataState, action)  {
                 }
             });
 
+        case "selectConversation" :
+            return Object.assign({}, state, {
+                currentConversationId: action.conversationId
+            });
+
         default:
             return state
     }

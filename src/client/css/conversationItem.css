@@ -1,0 +1,40 @@
+.conversation-item {
+    list-style: none;
+    padding: 12px 14px 14px;
+    border-bottom: 1px solid #ccc;
+    cursor: pointer;
+    background-color: #fff;
+}
+
+.conversation-item:hover {
+    background-color: #f8f8ff;
+}
+
+.conversation-item.active,
+.conversation-item.active:hover {
+    background-color: #efefff;
+    cursor: default;
+}
+
+.conversation-item-name {
+    color: #66c;
+    float: left;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.conversation-item-time {
+    color: #aad;
+    float: right;
+    font-size: 12px;
+}
+
+.conversation-item-last-message {
+    clear: both;
+    font-size: 14px;
+    padding-top: 6px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 2em;
+}
