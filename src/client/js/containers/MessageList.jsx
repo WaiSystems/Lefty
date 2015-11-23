@@ -53,7 +53,6 @@ class MessageList extends React.Component {
 }
 
 function select(state) {
-    console.log("Wai");
     const userData = state.userData;
 
     var conversation = null;
