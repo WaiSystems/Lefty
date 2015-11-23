@@ -2,6 +2,7 @@ import React from 'react';
 import { Textfield } from 'react-mdl';
 
 import "../../css/messageSection.css";
+import "../../css/messageComposer.css";
 
 export default class MessageComposer extends React.Component {
     constructor(props) {
@@ -30,7 +31,7 @@ export default class MessageComposer extends React.Component {
     render() {
         return (
             <div className="message-composer">
-                <textarea className="message"
+                <textarea className="message-composer-input"
                     value={this.state.message}
                     placeholder="Type your message here..."
                     onChange={ (e) => this.setState({message: e.target.value}) }

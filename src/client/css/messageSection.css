@@ -6,6 +6,8 @@
     right: 0;
     top: 0;
     bottom: 52px;
+    margin: 0;
+    padding: 0;
 }
 
 .message-composer {
@@ -15,15 +17,4 @@
     bottom:2px;
     right:0;
     left:0;
-}
-
-.message {
-    resize: none;
-    font-size: 16px;
-    font-family: inherit;
-    height: 100%;
-    width: 100%;
-    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
-    box-sizing: border-box;         /* Opera/IE 8+ */
 }

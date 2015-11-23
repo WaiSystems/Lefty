@@ -1,4 +1,6 @@
+import update from 'react-addons-update'
 import { combineReducers } from 'redux'
+import * as _ from 'lodash';
 
 const initialLoginState = {
     userName: "",
@@ -11,7 +13,8 @@ const initialUserDataState = {
     isFetching: false,
     self: {},
     users: {},
-    conversations: []
+    conversations: [],
+    currentConversationId : 0
 };
 
 function login(state = initialLoginState, action)  {
@@ -53,11 +56,22 @@ function userData(state = initialUserDataState, action)  {
                 isFetching: false,
                 self: action.userData.self,
                 users: action.userData.users,
-                conversations: action.userData.conversations
+                conversations: action.userData.conversations,
+                currentConversationId: action.userData.self.lastOpenConversation
             });
 
         case "loggedOut":
             return initialUserDataState;
+
+        case "createMessage" :
+            var currentConversationIndex = _.findIndex(state.conversations, {id: state.self.lastOpenConversation});
+            return update(state, {
+                conversations: {
+                    [currentConversationIndex]: {
+                        messages: {$push: [action.message]}
+                    }
+                }
+            });
 
         default:
             return state

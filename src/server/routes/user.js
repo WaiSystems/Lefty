@@ -37,7 +37,7 @@ router.post('/getUserData', function (req, res) {
         var userData = {};
         userData.self = req.session.user;
         userData.conversations = db.getConversationsForUserId(userId);
-        userData.users = db.getUsersForConversations(userData.conversations, userId);
+        userData.users = db.getUsersForConversations(userData.conversations);
 
         res.send({
             status: "OK",
