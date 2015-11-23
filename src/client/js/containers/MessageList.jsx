@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import { connect } from 'react-redux'
 import * as _ from 'lodash';
 
@@ -6,6 +7,21 @@ import MessageItem from '../components/MessageItem.jsx'
 import "../../css/messageSection.css";
 
 class MessageList extends React.Component {
+    componentDidMount() {
+        this._scrollToBottom();
+    }
+
+    componentWillUpdate() {
+        var node = ReactDOM.findDOMNode(this);
+        this._shouldScrollBottom = (node.scrollTop + node.clientHeight) === node.scrollHeight;
+    }
+
+    componentDidUpdate() {
+        if (this._shouldScrollBottom) {
+           this._scrollToBottom();
+        }
+    }
+
     render() {
         if (this.props.conversation == null) {
             return (<ul className="message-list" />);
@@ -28,6 +44,11 @@ class MessageList extends React.Component {
                 {messageItems}
             </ul>
         );
+    }
+
+    _scrollToBottom() {
+        var node = ReactDOM.findDOMNode(this);
+        node.scrollTop = node.scrollHeight;
     }
 }
 
