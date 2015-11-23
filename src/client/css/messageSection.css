@@ -5,7 +5,7 @@
     left: 0;
     right: 0;
     top: 0;
-    bottom: 52px;
+    bottom: 48px;
     margin: 0;
     padding: 0;
 }
@@ -14,7 +14,8 @@
     border: 1px solid #ccf;
     height: 48px;
     position: absolute;
-    bottom:2px;
+    bottom:0;
     right:0;
     left:0;
+    padding:0;
 }
