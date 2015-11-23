@@ -62,6 +62,24 @@
           "text": "Hello back"
         }
       ]
+    },
+    {
+      "id": 3,
+      "users": [2,3],
+      "messages": [
+        {
+          "id": "2_1448308415504",
+          "from": 2,
+          "timestamp": 1448308415504,
+          "text": "Hi there"
+        },
+        {
+          "id": "3_1448308464927",
+          "from": 3,
+          "timestamp": 1448308464927,
+          "text": "Ein Matzav this is a very long message test"
+        }
+      ]
     }
   ]
 }
