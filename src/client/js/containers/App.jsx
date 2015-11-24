@@ -27,19 +27,16 @@ class App extends React.Component {
         const { dispatch, login, userData } = this.props;
 
         if (login.isLoginInProgress) {
-            return <Loading message = "Logging in" />
+            return <Loading message="Logging in" />
         }
 
         if (login.isLogoutInProgress) {
-            return <Loading message = "Logging out" />
+            return <Loading message="Logging out" />
         }
 
         if (login.userName == "") {
             return (
-                <Login onLogin = { userName => {
-                    dispatch(loginUser(userName))
-                    }
-                } />
+                <Login onLogin={ (userName) => dispatch(loginUser(userName)) } />
             )
         }
 

@@ -1,5 +1,4 @@
 import React from 'react';
-import { Spinner } from 'react-mdl';
 
 import "../../css/messageItem.css";
 
