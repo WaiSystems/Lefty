@@ -4,9 +4,6 @@ var bodyParser = require('body-parser');
 
 // Consts
 var DEFAULT_PORT = 3000;
-var WEBPACK_DEV_SERVER_PORT = 3001;
-
-var isDevelopment = (process.env.NODE_ENV !== 'production');
 
 // Initialize our express app to support json POSTs
 var app = express();
@@ -31,24 +28,3 @@ var server = app.listen(process.env.PORT || DEFAULT_PORT, function () {
 
   console.log('Server is listening at http://%s:%s', host, port);
 });
-
-// If we're not in a production environment, start Webpack's dev server
-if (isDevelopment) {
-    var webpack = require('webpack');
-    var WebpackDevServer = require('webpack-dev-server');
-    var config = require('../../config/webpack.js');
-
-    new WebpackDevServer(webpack(config), {
-        hot: true,
-        historyApiFallback: true,
-        proxy: {
-            '*': 'http://localhost:' + server.address().port
-        }
-    }).listen(WEBPACK_DEV_SERVER_PORT, 'localhost', function (err, result) {
-        if (err) {
-            console.log(err);
-        }
-
-        console.log('Webpack dev server is listening at localhost:3001');
-    });
-}

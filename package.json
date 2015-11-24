@@ -7,7 +7,11 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node src/server/server.js",
     "build": "webpack --config config/webpack.js",
-    "postinstall": "node deploy.js"
+    "postinstall": "node deploy.js",
+
+    "start-dev-server": "nodemon src\\server\\server.js --ignore src\\client --ignore config\\ --ignore .idea\\",
+    "start-dev-hot-reload": "webpack-dev-server --config config\\webpack.js --port 3001",
+    "start-dev": "(start cmd /K title server ^& npm run start-dev-server) && (start cmd /K title webpack ^& npm run start-dev-hot-reload)"
   },
   "author": "",
   "license": "ISC",
