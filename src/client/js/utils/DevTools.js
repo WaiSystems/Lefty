@@ -1,5 +1,6 @@
+'use strict';
 import React from 'react';
-import { createStore, compose } from 'redux'
+import { createStore, compose } from 'redux';
 
 export function renderDevTools(store) {
     if (__DEV__) {

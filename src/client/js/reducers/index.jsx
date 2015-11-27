@@ -1,12 +1,13 @@
-import update from 'react-addons-update'
-import { combineReducers } from 'redux'
+'use strict';
+import update from 'react-addons-update';
+import { combineReducers } from 'redux';
 import * as _ from 'lodash';
 
 const initialLoginState = {
-    userName: "",
+    userName: '',
     isLoginInProgress: false,
     isLogoutInProgress: false,
-    sessionId: ""
+    sessionId: ''
 };
 
 const initialUserDataState = {
@@ -19,24 +20,24 @@ const initialUserDataState = {
 
 function login(state = initialLoginState, action)  {
     switch (action.type) {
-        case "loggingIn":
+        case 'loggingIn':
             return Object.assign({}, state, {
                 userName: action.user,
                 isLoginInProgress: true
             });
 
-        case "loggedIn":
+        case 'loggedIn':
             return Object.assign({}, state, {
                 sessionId: action.sessionId,
                 isLoginInProgress: false
             });
 
-        case "loggingOut":
+        case 'loggingOut':
             return Object.assign({}, state, {
                 isLogoutInProgress: true
             });
 
-        case "loggedOut":
+        case 'loggedOut':
             return initialLoginState;
 
         default:
@@ -46,12 +47,12 @@ function login(state = initialLoginState, action)  {
 
 function userData(state = initialUserDataState, action)  {
     switch (action.type) {
-        case "requestUserData":
+        case 'requestUserData':
             return Object.assign({}, state, {
                 isFetching: true
             });
 
-        case "receiveUserData":
+        case 'receiveUserData':
             return Object.assign({}, state, {
                 isFetching: false,
                 self: action.userData.self,
@@ -60,10 +61,10 @@ function userData(state = initialUserDataState, action)  {
                 currentConversationId: action.userData.self.lastOpenConversation
             });
 
-        case "loggedOut":
+        case 'loggedOut':
             return initialUserDataState;
 
-        case "createMessage" :
+        case 'createMessage' :
             var conversationId = action.conversationId;
             if (!conversationId) {
                 conversationId = state.currentConversationId;
@@ -78,7 +79,7 @@ function userData(state = initialUserDataState, action)  {
                 }
             });
 
-        case "selectConversation" :
+        case 'selectConversation' :
             return Object.assign({}, state, {
                 currentConversationId: action.conversationId
             });

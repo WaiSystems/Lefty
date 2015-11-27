@@ -1,8 +1,9 @@
-import * as UserApi from '../utils/UserApi'
+'use strict';
+import * as UserApi from '../utils/UserApi';
 
 export function loggedIn(userName, sessionId) {
     return {
-        type: "loggedIn",
+        type: 'loggedIn',
         user: userName,
         sessionId: sessionId
     };
@@ -10,20 +11,20 @@ export function loggedIn(userName, sessionId) {
 
 export function loggingIn(userName) {
     return {
-        type: "loggingIn",
+        type: 'loggingIn',
         user: userName
     };
 }
 
 export function loggedOut(userName, sessionId) {
     return {
-        type: "loggedOut"
+        type: 'loggedOut'
     };
 }
 
 export function loggingOut(userName) {
     return {
-        type: "loggingOut"
+        type: 'loggingOut'
     };
 }
 

@@ -1,8 +1,9 @@
-import { createStore, applyMiddleware } from 'redux'
-import thunk from 'redux-thunk'
+'use strict';
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
 
-import { createDevStore } from '../utils/DevTools.js'
-import chatReducer from '../reducers/index.jsx'
+import { createDevStore } from '../utils/DevTools.js';
+import chatReducer from '../reducers/index.jsx';
 
 const middleware = [ thunk ];
 

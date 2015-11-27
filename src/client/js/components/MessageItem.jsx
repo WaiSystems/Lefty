@@ -1,10 +1,11 @@
+'use strict';
 import React from 'react';
 
-import "../../css/messageItem.css";
+import '../../css/messageItem.css';
 
 export default class MessageItem extends React.Component {
     render() {
-        var message = this.props.message;
+        const message = this.props.message;
         return (
             <li className="message-item">
                 <h5 className="message-user-name">

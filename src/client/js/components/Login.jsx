@@ -1,13 +1,14 @@
+'use strict';
 import React from 'react';
 import { Button, Textfield } from 'react-mdl';
 
-import "../../css/login.css";
+import '../../css/login.css';
 
 export default class Login extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            userName: ""
+            userName: ''
         };
 
         this.onInputKeyDown = this.onInputKeyDown.bind(this);
@@ -20,7 +21,7 @@ export default class Login extends React.Component {
                     <Textfield
                         type="text"
                         label="Please enter you name..."
-                        onChange={ (e) => this.setState({userName: e.target.value})}
+                        onChange={(e) => this.setState({userName: e.target.value})}
                         onKeyPress={this.onInputKeyDown}
                     />
                 </div>

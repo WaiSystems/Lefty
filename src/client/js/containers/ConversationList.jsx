@@ -1,10 +1,11 @@
+'use strict';
 import React from 'react';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 import * as _ from 'lodash';
 
-import ConversationItem from '../components/ConversationItem.jsx'
-import {selectConversation} from '../actions/conversation.js'
-import "../../css/conversationSection.css";
+import ConversationItem from '../components/ConversationItem.jsx';
+import { selectConversation } from '../actions/conversation.js';
+import '../../css/conversationSection.css';
 
 class ConversationList extends React.Component {
     constructor(props) {
@@ -18,7 +19,7 @@ class ConversationList extends React.Component {
         const users = this.props.users;
         const converstionList = this;
 
-        var conversationItems = this.props.conversations.map(function(conversation) {
+        const conversationItems = this.props.conversations.map(function(conversation) {
             const conversationUsers = _.reject(conversation.users, function(userId) {
                 return userId == converstionList.props.selfUserId;
             });
@@ -72,4 +73,4 @@ function select(state) {
     }
 }
 
-export default connect(select)(ConversationList)
+export default connect(select)(ConversationList);

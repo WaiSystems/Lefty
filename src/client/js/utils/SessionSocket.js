@@ -1,6 +1,7 @@
+'use strict';
 import io from 'socket.io-client';
 
-import {receiveMessage} from '../actions/messages.js'
+import { receiveMessage } from '../actions/messages.js'
 
 class SessionSocket {
     constructor() {
@@ -27,7 +28,7 @@ class SessionSocket {
     }
 
     _initSocketMessageHandlers() {
-        var sessionSocket = this;
+        const sessionSocket = this;
         this._socket.on('message receive', function (newMessage) {
             sessionSocket._dispatch(receiveMessage(newMessage.conversationId, newMessage.message));
         });

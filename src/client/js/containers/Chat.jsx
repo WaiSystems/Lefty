@@ -1,14 +1,15 @@
+'use strict';
 import React from 'react';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 
-import Loading from '../components/Loading.jsx'
-import MessageSection from '../containers/MessageSection.jsx'
-import ConversationSection from '../containers/ConversationSection.jsx'
-import "../../css/chat.css";
-import { fetchUserData } from '../actions/userData'
-import SessionSocket from '../utils/SessionSocket.js'
+import Loading from '../components/Loading.jsx';
+import MessageSection from '../containers/MessageSection.jsx';
+import ConversationSection from '../containers/ConversationSection.jsx';
+import '../../css/chat.css';
 
-import * as UserApi from '../utils/UserApi'
+import { fetchUserData } from '../actions/userData.js';
+import SessionSocket from '../utils/SessionSocket.js';
+import * as UserApi from '../utils/UserApi';
 
 class Chat extends React.Component {
     componentDidMount() {
@@ -19,9 +20,7 @@ class Chat extends React.Component {
     }
 
   render() {
-    const { dispatch, userData, login } = this.props;
-
-    if (userData.isFetching) {
+    if (this.props.userData.isFetching) {
       return <Loading message = "Loading"/>
     }
 
@@ -38,4 +37,4 @@ function select(state) {
   return state;
 }
 
-export default connect(select)(Chat)
+export default connect(select)(Chat);

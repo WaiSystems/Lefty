@@ -1,15 +1,16 @@
-import * as UserApi from '../utils/UserApi'
+'use strict';
+import * as UserApi from '../utils/UserApi';
 
 export function requestUserData(sessionId) {
     return {
-        type: "requestUserData",
+        type: 'requestUserData',
         sessionId: sessionId
     };
 }
 
 export function receiveUserData(userData) {
     return {
-        type: "receiveUserData",
+        type: 'receiveUserData',
         userData: userData
     };
 }

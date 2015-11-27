@@ -1,11 +1,12 @@
+'use strict';
 import React from 'react';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 
-import MessageComposer from '../components/MessageComposer.jsx'
-import MessageList from './MessageList.jsx'
-import { createMessage } from '../actions/messages.js'
-import SessionSocket from '../utils/SessionSocket.js'
-import "../../css/chat.css";
+import MessageComposer from '../components/MessageComposer.jsx';
+import MessageList from './MessageList.jsx';
+import { createMessage } from '../actions/messages.js';
+import SessionSocket from '../utils/SessionSocket.js';
+import '../../css/chat.css';
 
 class MessageSection extends React.Component {
     constructor(props) {
@@ -20,13 +21,13 @@ class MessageSection extends React.Component {
 
         const userData = this.props.userData;
         let message = {
-            id: "",
+            id: '',
             from: userData.self.id,
             timestamp: Date.now(),
             text: messageText
         };
 
-        message.id = message.from.toString() + "_" + message.timestamp.toString();
+        message.id = message.from.toString() + '_' + message.timestamp.toString();
 
         this.props.dispatch(createMessage(message));
         SessionSocket.sendMessage(this.props.userData.currentConversationId, message);
@@ -46,4 +47,4 @@ function select(state) {
     return state;
 }
 
-export default connect(select)(MessageSection)
+export default connect(select)(MessageSection);

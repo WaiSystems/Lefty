@@ -1,6 +1,8 @@
+'use strict';
+
 export function selectConversation(conversationId) {
     return {
-        type: "selectConversation",
+        type: 'selectConversation',
         conversationId: conversationId
     };
 }

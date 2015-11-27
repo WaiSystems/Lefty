@@ -1,18 +1,19 @@
-import 'babel-polyfill'
-
+'use strict';
+import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux'
 import * as _ from 'lodash';
 
-import 'react-mdl/extra/material'
-import 'react-mdl/extra/material.css'
+import 'react-mdl/extra/material';
+import 'react-mdl/extra/material.css';
 
-import App from './containers/App.jsx'
-import { renderDevTools } from './utils/DevTools.js'
-import {configureStore} from './store'
+import App from './containers/App.jsx';
+import { renderDevTools } from './utils/DevTools.js';
+import { configureStore } from './store';
 
+// Create our redux store
 const store = configureStore();
 
 // Update the page's title when the user logs in\out

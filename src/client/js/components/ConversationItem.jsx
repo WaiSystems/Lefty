@@ -1,7 +1,8 @@
+'use strict';
 import React from 'react';
 import classnames from 'classnames';
 
-import "../../css/conversationItem.css";
+import '../../css/conversationItem.css';
 
 export default class ConversationItem extends React.Component {
     render() {

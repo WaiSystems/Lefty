@@ -1,12 +1,13 @@
+'use strict';
 import React from 'react';
 import { connect } from 'react-redux';
-import { Layout, Header, Navigation, HeaderRow, Drawer, Content, Icon} from 'react-mdl';
+import { Layout, Header, Navigation, HeaderRow, Drawer, Content, Icon } from 'react-mdl';
 
-import Chat from './Chat.jsx'
-import Login from '../components/Login.jsx'
-import Loading from '../components/Loading.jsx'
-import { loginUser, logoutUser } from '../actions/login.js'
-import '../../css/app.css'
+import Chat from './Chat.jsx';
+import Login from '../components/Login.jsx';
+import Loading from '../components/Loading.jsx';
+import { loginUser, logoutUser } from '../actions/login.js';
+import '../../css/app.css';
 
 import * as UserApi from '../utils/UserApi'
 
@@ -45,7 +46,7 @@ class App extends React.Component {
                 <Header>
                     <HeaderRow title="Lefty">
                         <Navigation>
-                            <a href="#" onClick={ (e) => this.onLogout(e) }>
+                            <a href="#" onClick={(e) => this.onLogout(e)}>
                                 Logout
                             </a>
                         </Navigation>
@@ -73,4 +74,4 @@ function select(state) {
     return state;
 }
 
-export default connect(select)(App)
+export default connect(select)(App);

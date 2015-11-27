@@ -1,4 +1,5 @@
-import fetch from 'isomorphic-fetch'
+'use strict';
+import fetch from 'isomorphic-fetch';
 
 function fetchFromServer(url, body) {
     return fetch(url, {
