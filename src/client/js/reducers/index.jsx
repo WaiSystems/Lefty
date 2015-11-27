@@ -64,7 +64,12 @@ function userData(state = initialUserDataState, action)  {
             return initialUserDataState;
 
         case "createMessage" :
-            var currentConversationIndex = _.findIndex(state.conversations, {id: state.currentConversationId});
+            var conversationId = action.conversationId;
+            if (!conversationId) {
+                conversationId = state.currentConversationId;
+            }
+
+            var currentConversationIndex = _.findIndex(state.conversations, {id: conversationId});
             return update(state, {
                 conversations: {
                     [currentConversationIndex]: {

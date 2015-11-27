@@ -56,3 +56,7 @@ exports.getUsersForConversations = function(conversations, excludeUserId) {
 
     return users;
 };
+
+exports.getConversationById = function(id) {
+    return db('conversations').findWhere({id: id});
+};

@@ -6,12 +6,16 @@ import MessageSection from '../containers/MessageSection.jsx'
 import ConversationSection from '../containers/ConversationSection.jsx'
 import "../../css/chat.css";
 import { fetchUserData } from '../actions/userData'
+import SessionSocket from '../utils/SessionSocket.js'
 
 import * as UserApi from '../utils/UserApi'
 
 class Chat extends React.Component {
     componentDidMount() {
-       this.props.dispatch(fetchUserData(this.props.login.sessionId));
+        const {dispatch, userData, login} = this.props;
+
+        dispatch(fetchUserData(login.sessionId));
+        SessionSocket.connect(dispatch, login.sessionId);
     }
 
   render() {

@@ -1,20 +1,20 @@
 'use strict';
 var express = require('express');
 var db = require('../db');
-var session = require('../session');
+var SessionManager = require('../session-manager');
 
 var router = express.Router();
 
 router.use(function (req, res, next) {
     if (req.body.sessionId) {
-        req.session = session.getSessionById(req.body.sessionId);
+        req.session = SessionManager.getSessionById(req.body.sessionId);
     }
     next();
 });
 
 router.post('/login', function (req, res) {
     var user = db.getUserByName(req.body.userName);
-    var sessionId = session.createSession(user);
+    var sessionId = SessionManager.createSession(user);
 
     res.send({
         status: "OK",
@@ -23,7 +23,7 @@ router.post('/login', function (req, res) {
 });
 
 router.post('/logout', function (req, res) {
-    session.destroySession(req.body.sessionId);
+    SessionManager.destroySession(req.body.sessionId);
 
     res.send({
         status: "OK"

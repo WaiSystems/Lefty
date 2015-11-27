@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import MessageComposer from '../components/MessageComposer.jsx'
 import MessageList from './MessageList.jsx'
 import { createMessage } from '../actions/messages.js'
+import SessionSocket from '../utils/SessionSocket.js'
 import "../../css/chat.css";
 
 class MessageSection extends React.Component {
@@ -28,6 +29,7 @@ class MessageSection extends React.Component {
         message.id = message.from.toString() + "_" + message.timestamp.toString();
 
         this.props.dispatch(createMessage(message));
+        SessionSocket.sendMessage(this.props.userData.currentConversationId, message);
     }
 
     render() {

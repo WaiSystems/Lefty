@@ -1,6 +1,8 @@
+'use strict';
 var express = require('express');
 var path = require('path');
 var bodyParser = require('body-parser');
+var SessionManager = require('./session-manager');
 
 // Consts
 var DEFAULT_PORT = 3000;
@@ -28,3 +30,7 @@ var server = app.listen(process.env.PORT || DEFAULT_PORT, function () {
 
   console.log('Server is listening at http://%s:%s', host, port);
 });
+
+// Initialize the session manager (and socket handling)
+var socketEventHandlers = require('./socketEventHandlers');
+SessionManager.initialize(server, socketEventHandlers);

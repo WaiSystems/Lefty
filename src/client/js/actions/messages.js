@@ -4,3 +4,11 @@ export function createMessage(message) {
         message: message
     };
 }
+
+export function receiveMessage(conversationId, message) {
+    return {
+        type: "createMessage",
+        conversationId: conversationId,
+        message: message
+    };
+}
