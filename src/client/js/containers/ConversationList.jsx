@@ -58,7 +58,6 @@ class ConversationList extends React.Component {
         if (conversationId != this.props.currentConversationId) {
             this.props.dispatch(selectConversation(conversationId));
         }
-        console.log("conversation click " + conversationId);
     }
 }
 
