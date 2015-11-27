@@ -1,8 +1,8 @@
 'use strict';
-var uid2 = require('uid2');
-var _ = require('lodash');
+const uid2 = require('uid2');
+const _ = require('lodash');
 
-var Session = require('./session.js');
+const Session = require('./session.js');
 
 const SESSION_ID_SIZE = 16;
 
@@ -41,7 +41,7 @@ class SessionManager {
     }
 
     createSession(user) {
-        var newSessionId = uid2(SESSION_ID_SIZE);
+        const newSessionId = uid2(SESSION_ID_SIZE);
         this._sessions[newSessionId] = new Session(newSessionId, user);
 
         console.log('Created a new session with id ' + newSessionId);
@@ -51,9 +51,10 @@ class SessionManager {
     destroySession(sessionId) {
         console.log('Destroying session ' + sessionId);
 
-        var sessionObject = this._sessions[sessionId];
+        let sessionObject = this._sessions[sessionId];
         if (sessionObject.socket != null) {
             sessionObject.socket.disconnect();
+            sessionObject.socket = null;
         }
 
         delete this._sessions[sessionId];

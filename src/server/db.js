@@ -1,13 +1,14 @@
 'use strict';
-var _ = require('lodash');
-var low = require('lowdb');
-var db = low(__dirname + '/data/db.json', {
+const _ = require('lodash');
+const low = require('lowdb');
+
+let db = low(__dirname + '/data/db.json', {
     autosave: false
 });
 
 exports.getUserByName = function (userName) {
-    var usersList = db('users');
-    var user = usersList.find({name: userName});
+    let usersList = db('users');
+    let user = usersList.find({name: userName});
     if (user) {
         console.log('Found an existing user: ' + userName);
         return user;
@@ -16,7 +17,7 @@ exports.getUserByName = function (userName) {
     // Auto create a new user
     console.log('Creating a new user: ' + userName);
 
-    var nextUserId = usersList.last().id + 1;
+    const nextUserId = usersList.last().id + 1;
     user = {
         id: nextUserId,
         name: userName,
@@ -50,7 +51,7 @@ exports.getUsersForConversations = function(conversations, excludeUserId) {
     }
 
     // Get the users with our user ids
-    var users = db('users').filter(function(user) {
+    const users = db('users').filter(function(user) {
         return _.contains(userIds, user.id);
     });
 
