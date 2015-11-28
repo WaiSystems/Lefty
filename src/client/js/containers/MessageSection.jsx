@@ -13,10 +13,10 @@ class MessageSection extends React.Component {
         super(props);
         this.state = {};
 
-        this.onCreateMessage = this.onCreateMessage.bind(this);
+        this._onCreateMessage = this._onCreateMessage.bind(this);
     }
 
-    onCreateMessage(messageText) {
+    _onCreateMessage(messageText) {
         console.log(messageText);
 
         const userData = this.props.userData;
@@ -27,7 +27,8 @@ class MessageSection extends React.Component {
             text: messageText
         };
 
-        message.id = message.from.toString() + '_' + message.timestamp.toString();
+        message.id = `${message.from.toString()}_${message.timestamp.toString()}`;
+        console.log('message id: ' + message.id);
 
         this.props.dispatch(createMessage(message));
         SessionSocket.sendMessage(this.props.userData.currentConversationId, message);
@@ -37,14 +38,14 @@ class MessageSection extends React.Component {
         return (
             <div className="message-section">
                 <MessageList/>
-                <MessageComposer onMessage={this.onCreateMessage} />
+                <MessageComposer onMessage={this._onCreateMessage} />
             </div>
         )
     }
 }
 
-function select(state) {
+function mapStateToProps(state) {
     return state;
 }
 
-export default connect(select)(MessageSection);
+export default connect(mapStateToProps)(MessageSection);

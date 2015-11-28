@@ -12,10 +12,10 @@ export default class MessageComposer extends React.Component {
             message: ''
         };
 
-        this.onKeyDown = this.onKeyDown.bind(this);
+        this._onKeyDown = this._onKeyDown.bind(this);
     }
 
-    onKeyDown(event) {
+    _onKeyDown(event) {
         if ((event.key == 'Enter') && (false == event.shiftKey)) {
             // Prevent the event from actually going to the textarea (and appending a new line)
             event.preventDefault();
@@ -36,7 +36,7 @@ export default class MessageComposer extends React.Component {
                     value={this.state.message}
                     placeholder="Type your message here..."
                     onChange={(e) => this.setState({message: e.target.value})}
-                    onKeyDown={this.onKeyDown}
+                    onKeyDown={this._onKeyDown}
                 />
             </div>
         )

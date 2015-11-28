@@ -28,9 +28,8 @@ class SessionSocket {
     }
 
     _initSocketMessageHandlers() {
-        const sessionSocket = this;
-        this._socket.on('message receive', function (newMessage) {
-            sessionSocket._dispatch(receiveMessage(newMessage.conversationId, newMessage.message));
+        this._socket.on('message receive', (newMessage) => {
+            this._dispatch(receiveMessage(newMessage.conversationId, newMessage.message));
         });
     }
 
@@ -41,4 +40,3 @@ class SessionSocket {
 }
 
 export default new SessionSocket();
-

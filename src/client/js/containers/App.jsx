@@ -16,16 +16,11 @@ class App extends React.Component {
         super(props);
         this.state = {};
 
-        this.onLogout = this.onLogout.bind(this);
-    }
-
-    onLogout(event) {
-        event.preventDefault();
-        this.props.dispatch(logoutUser(this.props.login.sessionId));
+        this._onLogout = this._onLogout.bind(this);
     }
 
     render() {
-        const { dispatch, login, userData } = this.props;
+        const {dispatch, login, userData} = this.props;
 
         if (login.isLoginInProgress) {
             return <Loading message="Logging in" />
@@ -37,7 +32,7 @@ class App extends React.Component {
 
         if (login.userName == "") {
             return (
-                <Login onLogin={ (userName) => dispatch(loginUser(userName)) } />
+                <Login onLogin={(userName) => dispatch(loginUser(userName))} />
             )
         }
 
@@ -46,7 +41,7 @@ class App extends React.Component {
                 <Header>
                     <HeaderRow title="Lefty">
                         <Navigation>
-                            <a href="#" onClick={(e) => this.onLogout(e)}>
+                            <a href="#" onClick={(e) => this._onLogout(e)}>
                                 Logout
                             </a>
                         </Navigation>
@@ -68,10 +63,16 @@ class App extends React.Component {
             </Layout>
         )
     }
+
+    _onLogout(event) {
+        event.preventDefault();
+        this.props.dispatch(logoutUser(this.props.login.sessionId));
+    }
+
 }
 
-function select(state) {
+function mapStateToProps(state) {
     return state;
 }
 
-export default connect(select)(App);
+export default connect(mapStateToProps)(App);

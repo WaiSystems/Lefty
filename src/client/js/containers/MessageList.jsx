@@ -29,7 +29,7 @@ class MessageList extends React.Component {
         }
 
         const users = this.props.users;
-        const messageItems = this.props.conversation.messages.map(function(message) {
+        const messageItems = this.props.conversation.messages.map((message) => {
             return (
                 <MessageItem key={message.id} message={{
                     user: _.findWhere(users, {id: message.from}),
@@ -53,7 +53,7 @@ class MessageList extends React.Component {
     }
 }
 
-function select(state) {
+function mapStateToProps(state) {
     const userData = state.userData;
 
     let conversation = null;
@@ -67,4 +67,4 @@ function select(state) {
     };
 }
 
-export default connect(select)(MessageList);
+export default connect(mapStateToProps)(MessageList);

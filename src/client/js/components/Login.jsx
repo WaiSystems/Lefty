@@ -11,8 +11,8 @@ export default class Login extends React.Component {
             userName: ''
         };
 
-        this.onInputKeyDown = this.onInputKeyDown.bind(this);
-        this.submitLogin = this.submitLogin.bind(this);
+        this._onInputKeyDown = this._onInputKeyDown.bind(this);
+        this._submitLogin = this._submitLogin.bind(this);
     }
     render() {
         return (
@@ -22,13 +22,13 @@ export default class Login extends React.Component {
                         type="text"
                         label="Please enter you name..."
                         onChange={(e) => this.setState({userName: e.target.value})}
-                        onKeyPress={this.onInputKeyDown}
+                        onKeyPress={this._onInputKeyDown}
                     />
                 </div>
                 <div className="login-item-container">
                     <Button
                         ripple={true}
-                        onClick={(e) => this.submitLogin()}>
+                        onClick={(e) => this._submitLogin()}>
                             Login
                     </Button>
                 </div>
@@ -36,13 +36,13 @@ export default class Login extends React.Component {
         )
     }
 
-    onInputKeyDown(event) {
+    _onInputKeyDown(event) {
         if (event.key == 'Enter') {
-            this.submitLogin();
+            this._submitLogin();
         }
     }
 
-    submitLogin() {
+    _submitLogin() {
         this.props.onLogin(this.state.userName);
     }
 }

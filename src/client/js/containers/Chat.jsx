@@ -33,8 +33,8 @@ class Chat extends React.Component {
   }
 }
 
-function select(state) {
+function mapStateToProps(state) {
   return state;
 }
 
-export default connect(select)(Chat);
+export default connect(mapStateToProps)(Chat);
