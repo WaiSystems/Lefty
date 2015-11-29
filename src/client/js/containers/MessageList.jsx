@@ -34,7 +34,7 @@ class MessageList extends React.Component {
                 <MessageItem key={message.id} message={{
                     user: _.findWhere(users, {id: message.from}),
                     timestamp: message.timestamp,
-                    text: message.text
+                    content: message.content
                 }}
                 />
             );

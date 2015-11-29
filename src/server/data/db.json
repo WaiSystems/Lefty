@@ -20,6 +20,25 @@
     }
   ],
 
+  "translations" : {
+    "123" : {
+      "source" : {
+        "text": "hello",
+        "lang": "en"
+      },
+
+      "translations" : [
+        {
+          "type": "mstranslate",
+          "text": "Shalom",
+          "lang": "he"
+        }
+      ],
+
+      "status": "have no idea"
+    }
+  },
+
   "conversations" : [
     {
       "id": 1,
@@ -29,19 +48,31 @@
           "id": "1_1448129602292",
           "from": 1,
           "timestamp": 1448129602292,
-          "text": "Wai Wai"
+          "content" : [
+            {
+              "text": "Wai Wai"
+            }
+          ]
         },
         {
           "id": "1_1448129626284",
           "from": 1,
           "timestamp": 1448129626284,
-          "text": "YyY"
+          "content" : [
+            {
+              "text": "YyY"
+            }
+          ]
         },
         {
           "id": "2_1448129642037",
           "from": 2,
           "timestamp": 1448129642037,
-          "text": "Hello"
+          "content" : [
+            {
+              "text": "Hello"
+            }
+          ]
         }
       ]
     },
@@ -53,13 +84,23 @@
           "id": "1_1448129654821",
           "from": 1,
           "timestamp": 1448129654821,
-          "text": "Hello"
+
+          "content" : [
+            {
+              "text": "hello",
+              "translation_id": "123"
+            }
+          ]
         },
         {
           "id": "3_1448129667444",
           "from": 3,
           "timestamp": 1448129667444,
-          "text": "Hello back"
+          "content" : [
+            {
+              "text": "Hello back"
+            }
+          ]
         }
       ]
     },
@@ -71,13 +112,21 @@
           "id": "2_1448308415504",
           "from": 2,
           "timestamp": 1448308415504,
-          "text": "Hi there"
+          "content" : [
+            {
+              "text": "Hi there"
+            }
+          ]
         },
         {
           "id": "3_1448308464927",
           "from": 3,
           "timestamp": 1448308464927,
-          "text": "Ein Matzav this is a very long message test"
+          "content" : [
+            {
+              "text": "Ein Matzav this is a very long message test"
+            }
+          ]
         }
       ]
     }

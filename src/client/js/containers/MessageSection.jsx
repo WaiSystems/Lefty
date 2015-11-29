@@ -24,7 +24,11 @@ class MessageSection extends React.Component {
             id: '',
             from: userData.self.id,
             timestamp: Date.now(),
-            text: messageText
+            content: [
+                {
+                    text: messageText
+                }
+            ]
         };
 
         message.id = `${message.from.toString()}_${message.timestamp.toString()}`;
