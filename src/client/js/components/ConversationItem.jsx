@@ -8,6 +8,7 @@ export default class ConversationItem extends React.Component {
     render() {
         const {id, name, lastMessageInformation, isOpen} = this.props;
 
+        //TODO: Render the entire message content
         return (
             <li
                 className={classnames({
@@ -23,7 +24,7 @@ export default class ConversationItem extends React.Component {
                     {new Date(lastMessageInformation.message.timestamp).toLocaleString()}
                 </div>
                 <div className="conversation-item-last-message">
-                    {lastMessageInformation.user.displayName}: {lastMessageInformation.message.text}
+                    {lastMessageInformation.user.displayName}: {lastMessageInformation.message.content[0].text}
                 </div>
             </li>
         );
