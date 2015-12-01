@@ -2,6 +2,7 @@
 import React from 'react';
 
 import ConversationList from './ConversationList.jsx';
+import ConversationToolbar from '../components/ConversationToolbar.jsx';
 import '../../css/chat.css';
 
 export default class ConversationSection extends React.Component {
@@ -9,6 +10,7 @@ export default class ConversationSection extends React.Component {
         return (
             <div className="conversation-section">
                 <ConversationList/>
+                <ConversationToolbar/>
             </div>
         )
     }
