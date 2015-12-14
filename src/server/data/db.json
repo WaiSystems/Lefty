@@ -1,0 +1,134 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "koby",
+      "displayName": "Koby",
+      "lastOpenConversation" : 1
+    },
+    {
+      "id": 2,
+      "name": "dan",
+      "displayName": "Dan",
+      "lastOpenConversation" : 1
+    },
+    {
+      "id": 3,
+      "name": "test",
+      "displayName": "Test User",
+      "lastOpenConversation" : 2
+    }
+  ],
+
+  "translations" : {
+    "123" : {
+      "source" : {
+        "text": "hello",
+        "lang": "en"
+      },
+
+      "translations" : [
+        {
+          "type": "mstranslate",
+          "text": "Shalom",
+          "lang": "he"
+        }
+      ],
+
+      "status": "have no idea"
+    }
+  },
+
+  "conversations" : [
+    {
+      "id": 1,
+      "users": [1, 2],
+      "messages": [
+        {
+          "id": "1_1448129602292",
+          "from": 1,
+          "timestamp": 1448129602292,
+          "content" : [
+            {
+              "text": "Wai Wai"
+            }
+          ]
+        },
+        {
+          "id": "1_1448129626284",
+          "from": 1,
+          "timestamp": 1448129626284,
+          "content" : [
+            {
+              "text": "YyY"
+            }
+          ]
+        },
+        {
+          "id": "2_1448129642037",
+          "from": 2,
+          "timestamp": 1448129642037,
+          "content" : [
+            {
+              "text": "Hello"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "users": [1,3],
+      "messages": [
+        {
+          "id": "1_1448129654821",
+          "from": 1,
+          "timestamp": 1448129654821,
+
+          "content" : [
+            {
+              "text": "hello",
+              "translation_id": "123"
+            }
+          ]
+        },
+        {
+          "id": "3_1448129667444",
+          "from": 3,
+          "timestamp": 1448129667444,
+          "content" : [
+            {
+              "text": "Hello back"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "users": [2,3],
+      "messages": [
+        {
+          "id": "2_1448308415504",
+          "from": 2,
+          "timestamp": 1448308415504,
+          "content" : [
+            {
+              "text": "Hi there"
+            }
+          ]
+        },
+        {
+          "id": "3_1448308464927",
+          "from": 3,
+          "timestamp": 1448308464927,
+          "content" : [
+            {
+              "text": "Ein Matzav this is a very long message test"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

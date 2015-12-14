@@ -1,0 +1,21 @@
+.message-list {
+    border: 1px solid #ccf;
+    overflow-y: auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 48px;
+    margin: 0;
+    padding: 0;
+}
+
+.message-composer {
+    border: 1px solid #ccf;
+    height: 48px;
+    position: absolute;
+    bottom:0;
+    right:0;
+    left:0;
+    padding:0;
+}

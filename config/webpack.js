@@ -6,7 +6,9 @@ var devFlagPlugin = new webpack.DefinePlugin({
   __DEV__: JSON.stringify(JSON.parse(process.env.DEBUG || 'false'))
 });
 
-module.exports = {  
+module.exports = {
+  lazy: false,
+  
   entry: [ 
     'webpack-dev-server/client?http://0.0.0.0:3001', // WebpackDevServer host and port
     'webpack/hot/only-dev-server', // "only" prevents reload on syntax errors
@@ -41,6 +43,14 @@ module.exports = {
         loader: ExtractTextPlugin.extract("style-loader", "css-loader")
       },
     ]
+  },
+
+  devServer: {
+    hot: true,
+    historyApiFallback: true,
+    proxy: {
+      '*': 'http://localhost:3000'
+    }
   },
 
   plugins: [

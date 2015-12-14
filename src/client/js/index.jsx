@@ -1,18 +1,31 @@
+'use strict';
+import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux'
+import * as _ from 'lodash';
 
-import App from './containers/App.jsx'
-import chatReducer from './reducers/index.jsx'
-import { renderDevTools, createDevStore } from './utils/DevTools.js'
+import 'react-mdl/extra/material';
+import 'react-mdl/extra/material.css';
 
-import 'react-mdl/extra/material'
-import 'react-mdl/extra/material.css'
+import App from './containers/App.jsx';
+import { renderDevTools } from './utils/DevTools.js';
+import { configureStore } from './store';
 
-let finalCreateStore = __DEV__ ? createDevStore : createStore;
+// Create our redux store
+const store = configureStore();
 
-const store = finalCreateStore(chatReducer);
+// Update the page's title when the user logs in\out
+store.subscribe(() => {
+    const userDisplayName = _.get(store.getState(), 'userData.self.displayName', null);
+    //console.log(JSON.stringify(store));
+    if (userDisplayName) {
+        document.title = 'Lefty - ' + userDisplayName;
+    } else {
+        document.title = 'Lefty';
+    }
+});
 
 ReactDOM.render(
     <div>
