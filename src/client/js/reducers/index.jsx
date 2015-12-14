@@ -41,7 +41,7 @@ function login(state = initialLoginState, action)  {
             return initialLoginState;
 
         default:
-            return state
+            return state;
     }
 }
 
@@ -85,13 +85,46 @@ function userData(state = initialUserDataState, action)  {
             });
 
         default:
-            return state
+            return state;
+    }
+}
+
+const initialTranslationState = {
+    isUserSelectingText: false,
+    selectedTextMessageId: '',
+    textForTranslation: ''
+};
+
+function translation(state = initialTranslationState, action) {
+    switch (action.type) {
+        case 'selectingTextForTranslation':
+            return Object.assign({}, state, {
+                isUserSelectingText: true,
+                selectedTextMessageId: action.messageId,
+                textForTranslation: ''
+            });
+
+        case 'selectedTextForTranslation':
+            return Object.assign({}, state, {
+                isUserSelectingText: false,
+                textForTranslation: action.text
+            });
+
+        case 'clearSelectedTextForTranslation':
+            return Object.assign({}, initialTranslationState);
+
+        case 'selectConversation':
+            return Object.assign({}, initialTranslationState);
+
+        default:
+            return state;
     }
 }
 
 const chatReducer = combineReducers({
     login,
-    userData
+    userData,
+    translation
 });
 
 export default chatReducer;

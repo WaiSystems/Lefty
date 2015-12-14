@@ -2,11 +2,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Layout, Header, Navigation, HeaderRow, Drawer, Content, Icon } from 'react-mdl';
+import classnames from 'classnames';
 
 import Chat from './Chat.jsx';
 import Login from '../components/Login.jsx';
 import Loading from '../components/Loading.jsx';
 import { loginUser, logoutUser } from '../actions/login.js';
+import { clearSelectedTextForTranslation } from '../actions/translation';
 import '../../css/app.css';
 
 import * as UserApi from '../utils/UserApi'
@@ -17,10 +19,11 @@ class App extends React.Component {
         this.state = {};
 
         this._onLogout = this._onLogout.bind(this);
+        this._onLayoutMouseDown = this._onLayoutMouseDown.bind(this);
     }
 
     render() {
-        const {dispatch, login, userData} = this.props;
+        const {dispatch, login, userData, translation} = this.props;
 
         if (login.isLoginInProgress) {
             return <Loading message="Logging in" />
@@ -37,7 +40,13 @@ class App extends React.Component {
         }
 
         return (
-            <Layout fixedHeader={true}>
+            <Layout
+                fixedHeader={true}
+                className={classnames({
+                    'not-selectable': translation.isUserSelectingText
+                })}
+                onMouseDown={this._onLayoutMouseDown}
+            >
                 <Header>
                     <HeaderRow title="Lefty">
                         <Navigation>
@@ -69,6 +78,9 @@ class App extends React.Component {
         this.props.dispatch(logoutUser(this.props.login.sessionId));
     }
 
+    _onLayoutMouseDown(event) {
+        this.props.dispatch(clearSelectedTextForTranslation());
+    }
 }
 
 function mapStateToProps(state) {

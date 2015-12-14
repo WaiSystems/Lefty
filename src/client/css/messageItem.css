@@ -22,3 +22,20 @@
     padding-top: 2px;
     text-align: start;
 }
+
+.selectable {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+}
+
+.selectable::selection {
+    color: white;
+    background: #993399
+}
+
+.selectable::-moz-selection{
+    color: white;
+    background: #993399
+}
